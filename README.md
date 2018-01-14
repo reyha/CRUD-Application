@@ -1,4 +1,4 @@
-# CRUD application using Express and MongoDB 
+# CRUD application  
 
 - Modules:
 1. Express

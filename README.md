@@ -1,5 +1,3 @@
-# CRUD-Application
-
 # CRUD application using Express and MongoDB 
 
 - [SOURCE](http://zell-weekeat.com/crud-express-mongodb)

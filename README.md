@@ -1,16 +1,14 @@
 # CRUD application  
+ 
+Made just to learn basic CRUD principles using Express framework and MongoDB.  
 
-- Modules:
-1. Express
-2. MongoDB
-3. Node
+# To use,
 
-## Installation
+- run `npm run dev`
+- Navigate to `localhost:3000`
 
-1. Clone repo
-2. run `npm install` 
+# To install,
 
-## Usage 
+- clone repo
+- run `npm install` 
 
-1. run `npm run dev`
-2. Navigate to `localhost:3000`

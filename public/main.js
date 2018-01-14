@@ -1,4 +1,5 @@
 var update = document.getElementById('update')
+var del = document.getElementById('delete')
 
 update.addEventListener('click', function () {
   // Send PUT Request here
@@ -6,19 +7,17 @@ update.addEventListener('click', function () {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            'name': 'Darth Vader',
-            'quote': 'I find your lack of faith disturbing.'
+            'name': 'Batman',
+            'quote': 'I am more powerful'
         })
-     }).then(res => {
-  if (res.ok) return res.json()
-})
-.then(data => {
+     })
+     .then(res => {
+       if (res.ok) return res.json()
+     }).then(data => {
   console.log(data)
   window.location.reload()
 })
 })
-
-var del = document.getElementById('delete')
 
 del.addEventListener('click', function () {
   fetch('quotes', {
@@ -27,7 +26,7 @@ del.addEventListener('click', function () {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      'name': 'Darth Vader'
+      'name': 'Batman'
     })
   })
   .then(res => {

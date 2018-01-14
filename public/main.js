@@ -3,12 +3,13 @@ var del = document.getElementById('delete')
 
 update.addEventListener('click', function () {
   // Send PUT Request here
-    fetch('quotes', {
+    fetch('list', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            'name': 'Batman',
-            'quote': 'I am more powerful'
+            'priority':'None',
+            'item': 'This is done!',
+            'date': ''
         })
      })
      .then(res => {
@@ -20,13 +21,13 @@ update.addEventListener('click', function () {
 })
 
 del.addEventListener('click', function () {
-  fetch('quotes', {
+  fetch('list', {
     method: 'delete',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      'name': 'Batman'
+      'priority': 'Low'
     })
   })
   .then(res => {

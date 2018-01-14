@@ -5,9 +5,12 @@
   <title>My App </title>
 </head>
 <body>
-    <form action="/quotes" method="POST">
-        <input type="text" placeholder="name" name="name">
-        <input type="text" placeholder="quotes" name="quote">
+    <form action="/list" method="POST">
+ 	<input type="radio" name="priority" value="High" checked> High<br>
+  	<input type="radio" name="priority" value="Medium"> Medium<br>
+        <input type="radio" name="priority" value="Low"> Low<br>
+        <input type="text" placeholder="item" name="item">
+	<input type="date" placeholder="date" name="date">
         <button type="submit"> Submit </button>
     </form>
 </body>

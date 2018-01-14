@@ -2,36 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MY APP</title>
+  <title>My To-Do list</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  Superman VS Batman
+  <h3>Add Item:</h3>
 
-  <ul class="quotes">
-  <% for(var i=0; i<quotes.length; i++) {%>
+   <form action="/list" method="POST">
+        Priority:
+  	<input list="priority" name="priority">
+	<datalist id="priority">
+       	  <option value="High">
+    	  <option value="Medium">
+    	  <option value="Low">
+	</datalist>
+	<br>
+        Item:
+        <input type="text" placeholder="item" name="item">
+	<br>
+	Date:        
+	<input type="date" placeholder="date" name="date">
+        <br><br>
+	<button type="submit"> Submit </button>
+  </form>
+  <br> <br>
+  <div>
+    To Mark last high priority as done, click here: 
+    <button id="update"> DONE HIGH </button>
+  </div>
+  <br><br>
+  <div>
+    To delete last low priority item, click here</h6>
+    <button id="delete"> DELETE LOW</button>
+  </div>
+
+ <h3> LIST </h3> 
+ <ul class="list">
+  <% for(var i=0; i<list.length; i++) {%>
     <li class="quote">
-      <span><%= quotes[i].name %></span>
-      <span><%= quotes[i].quote %></span>
+      <span><%= list[i].priority %></span>
+      <span><%= list[i].item %></span>
+      <span><%= list[i].date %></span>
     </li>
   <% } %>
   </ul>
-
-  <form action="/quotes" method="POST">
-    <input type="text" placeholder="name" name="name">
-    <input type="text" placeholder="quote" name="quote">
-    <button type="submit">Submit</button>
-  </form>
-
-  <div>
-    <h2>Replace last quote written by Spiderman with a quote written by Batman</h2>
-    <button id="update"> Invasion!! </button>
-  </div>
-
-  <div>
-    <h2>Delete Batman's first quote</h2>
-    <button id="delete"> Delete first Batman quote </button>
-  </div>
 
  <script src="main.js"></script>
 </body>

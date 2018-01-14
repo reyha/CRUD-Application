@@ -22,27 +22,28 @@ MongoClient.connect(db_url, (err, database) => {
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.get('/', (req, res) => {
-  db.collection('quotes').find().toArray((err, result) => {
+  db.collection('list').find().toArray((err, result) => {
     if (err) return console.log(err)
     // renders index.ejs
-    res.render('index.ejs', {quotes: result})
+    res.render('index.ejs', {list: result})
   })
 })
 
-app.post('/quotes', (req,res) => {
-   db.collection('quotes').insert(req.body, (err, result) => {
+app.post('/list', (req,res) => {
+   db.collection('list').insert(req.body, (err, result) => {
       if (err) return console.log(err)
       console.log("saved to db")
       res.redirect('/')
   })
 })
 
-app.put('/quotes', (req, res) => {
- db.collection('quotes')
-  .findOneAndUpdate({name: 'Spiderman'}, {
+app.put('/list', (req, res) => {
+ db.collection('list')
+  .findOneAndUpdate({priority: 'High'}, {
     $set: {
-      name: req.body.name,
-      quote: req.body.quote
+      priority: req.body.priority,
+      item: req.body.item,
+      date: req.body.date
     }
   }, {
     sort: {_id: -1},
@@ -53,11 +54,11 @@ app.put('/quotes', (req, res) => {
   })
 })
 
-app.delete('/quotes', (req, res) => {
-  db.collection('quotes').findOneAndDelete({name: req.body.name},
-  (err, result) => {
+app.delete('/list', (req, res) => {
+  db.collection('list').findOneAndDelete({priority: req.body.priority},
+  {sort: {_id: -1}},(err, result) => {
     if (err) return res.send(500, err)
-    res.send({message: 'Batman got deleted'})
+    res.send({message: 'Last item deleted!'})
   })
 })  
 
